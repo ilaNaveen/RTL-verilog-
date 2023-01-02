@@ -1,0 +1,33 @@
+////////full adder
+
+
+module full_adder(a,b,cin,s,c);
+    input a,b,cin;
+    output s,c;
+    assign s=a^b^cin;
+    assign c = a&b | b&cin | cin&a;
+endmodule
+
+
+
+///////////test bench
+
+
+
+
+module full_addertb();
+reg a,b,cin;
+wire s,c;
+full_adder dut(a,b,cin,s,c);
+initial
+begin
+a=0;b=0;cin=0; #50
+a=0;b=0;cin=1; #50
+a=0;b=1;cin=0; #50
+a=0;b=1;cin=1; #50
+a=1;b=0;cin=0; #50
+a=1;b=0;cin=1; #50
+a=1;b=1;cin=0; #50
+a=1;b=1;cin=1; 
+end
+endmodule
