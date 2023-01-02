@@ -1,0 +1,25 @@
+//////HALF ADDER
+
+module half_adder(a,b,s,c);
+
+    input a,b;
+    output s,c;
+    assign s=a^b;
+    assign c=a&b;
+endmodule
+
+
+/////////TEST bench
+
+module half_addertb();
+reg a,b;
+wire s,c;
+half_adder dut(a,b,s,c);
+initial 
+begin
+a=0;b=0; #10
+a=0;b=1; #10
+a=1;b=0; #10
+a=1;b=1;
+end
+endmodule
